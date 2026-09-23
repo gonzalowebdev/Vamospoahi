@@ -16,8 +16,7 @@ function renderHeader(activePage) {
       <a href="index.html" class="flex items-center space-x-2">
         <img src="logovpa.jpg" alt="Logo Vamos por ahí" class="w-12 h-12 rounded-full object-cover border-2 border-amber-300">
         <div>
-          <span class="text-2xl font-bold text-amber-700">Diani!</span>
-          <span class="text-sm text-gray-500 block -mt-1">Vamos por ahí</span>
+          <span class="text-2xl font-bold text-amber-700">Vamos Por Ahí</span>
         </div>
       </a>
       <nav class="hidden lg:flex space-x-5 text-gray-700 font-medium text-sm">

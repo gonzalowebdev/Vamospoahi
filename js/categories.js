@@ -4,7 +4,7 @@ const CATEGORIES = [
   { slug: 'cordoba',      label: 'Córdoba',      description: 'Destinos, pueblos, escapadas, novedades turísticas.' },
   { slug: 'gastronomia',  label: 'Gastronomía',  description: 'Restaurantes, bares, bodegas, productos, aperturas, experiencias.' },
   { slug: 'escapadas',    label: 'Escapadas',    description: 'Hoteles, cabañas, destinos cercanos, propuestas de fin de semana.' },
-  { slug: 'experiencias', label: 'Experiencias', description: 'Qué hacer, eventos, actividades, propuestas diferentes.' },
+  { slug: 'experiencias', label: 'Trekking', description: 'Qué hacer, eventos, actividades, propuestas diferentes.' },
   { slug: 'viajes',       label: 'Viajes',       description: 'Destinos nacionales e internacionales.' },
   { slug: 'agenda',       label: 'Agenda',       description: 'Eventos, fiestas, ferias, propuestas para hacer.' },
   { slug: 'recomendados', label: 'Recomendados', description: 'Curaduría de lugares y experiencias recomendadas.' },

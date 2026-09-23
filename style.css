@@ -234,3 +234,12 @@ html {
     color: #57534e;
     font-style: italic;
 }
+
+/* Epígrafe debajo de una imagen (línea centrada y chica que se agrega desde el editor) */
+.prose-nota .ql-align-center {
+    text-align: center;
+}
+.prose-nota .ql-size-small {
+    font-size: 0.85rem;
+    color: #78716c;
+}

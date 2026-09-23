@@ -21,9 +21,14 @@ async function cargarNota() {
   renderHeader(post.category);
   supabaseClient.rpc('increment_post_view', { p_slug: slug }); // fire-and-forget
 
+  const fechaPublicacion = new Date(post.created_at).toLocaleDateString('es-AR', {
+    day: 'numeric', month: 'long', year: 'numeric',
+  });
+
   cont.innerHTML = `
     <span class="text-xs font-semibold text-amber-600 uppercase tracking-wide">${getCategoryLabel(post.category)}</span>
-    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-6">${post.title}</h1>
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-2">${post.title}</h1>
+    <p class="text-sm text-gray-400 mb-6">Publicado el ${fechaPublicacion}</p>
     ${post.cover_image_url ? `<img src="${post.cover_image_url}" alt="${post.title}" class="w-full rounded-3xl mb-8">` : ''}
     <div class="prose-nota text-gray-700 text-lg leading-relaxed">${post.content}</div>
   `;

@@ -6,6 +6,7 @@ async function cargarHome() {
     .select('*')
     .eq('published', true)
     .eq('featured', true)
+    .order('featured_order', { ascending: true, nullsFirst: false })
     .order('created_at', { ascending: false })
     .limit(3);
 

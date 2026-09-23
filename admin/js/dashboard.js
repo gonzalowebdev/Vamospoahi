@@ -46,7 +46,7 @@ function renderNotas(posts) {
     <div class="flex items-center justify-between bg-white rounded-2xl p-4 shadow-sm gap-3">
       <div class="min-w-0 flex-1">
         <p class="font-semibold text-gray-800 truncate">${p.title}</p>
-        <p class="text-xs text-gray-500">${getCategoryLabel(p.category)}${p.featured ? ' · Destacada' : ''} · <i class="fas fa-eye"></i> ${p.views || 0} vistas</p>
+        <p class="text-xs text-gray-500">${getCategoryLabel(p.category)}${p.featured ? ' · Destacada' + (p.featured_order ? ' #' + p.featured_order : '') : ''} · <i class="fas fa-eye"></i> ${p.views || 0} vistas</p>
       </div>
       <label class="flex items-center gap-2 text-xs text-gray-500 shrink-0 cursor-pointer">
         <input type="checkbox" ${p.published ? 'checked' : ''} onchange="togglePublicado('${p.id}', this.checked)">

@@ -59,14 +59,19 @@
                 <div id="post-content-editor" class="bg-white"></div>
             </div>
 
-            <div class="flex gap-6">
+            <div class="flex gap-6 items-center flex-wrap">
                 <label class="flex items-center gap-2 text-sm text-gray-600">
                     <input type="checkbox" id="post-published"> Publicada
                 </label>
                 <label class="flex items-center gap-2 text-sm text-gray-600">
                     <input type="checkbox" id="post-featured"> Destacada
                 </label>
+                <label class="flex items-center gap-2 text-sm text-gray-600">
+                    Orden en destacadas
+                    <input type="number" id="post-featured-order" min="1" placeholder="1, 2, 3..." class="w-20 p-2 border border-gray-300 rounded-xl text-sm">
+                </label>
             </div>
+            <p class="text-xs text-gray-400 -mt-2">El orden solo aplica entre las notas marcadas como Destacada. Si lo dejás vacío, se ordena por fecha.</p>
 
             <button type="submit" id="post-submit-btn" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 rounded-full transition">
                 Guardar nota

@@ -41,7 +41,21 @@ function imageHandler() {
 
     const { data } = supabaseClient.storage.from('post-images').getPublicUrl(path);
     quill.insertEmbed(range.index, 'image', data.publicUrl);
-    quill.setSelection(range.index + 1);
+
+    let cursor = range.index + 1;
+    quill.insertText(cursor, '\n');
+    cursor += 1;
+
+    // Epígrafe opcional debajo de la imagen recién insertada
+    const epigrafe = window.prompt('Epígrafe para esta imagen (opcional, dejar vacío para omitir):');
+    if (epigrafe && epigrafe.trim()) {
+      const texto = epigrafe.trim();
+      quill.insertText(cursor, texto + '\n', { italic: true, size: 'small' });
+      quill.formatLine(cursor, 1, 'align', 'center');
+      cursor += texto.length + 1;
+    }
+
+    quill.setSelection(cursor);
   };
   input.click();
 }
@@ -84,6 +98,7 @@ async function cargarPostExistente() {
   document.getElementById('post-cover-url').value = post.cover_image_url || '';
   document.getElementById('post-published').checked = post.published;
   document.getElementById('post-featured').checked = post.featured;
+  document.getElementById('post-featured-order').value = post.featured_order ?? '';
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -123,6 +138,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       cover_image_url: document.getElementById('post-cover-url').value,
       published: document.getElementById('post-published').checked,
       featured: document.getElementById('post-featured').checked,
+      featured_order: document.getElementById('post-featured-order').value
+        ? parseInt(document.getElementById('post-featured-order').value, 10)
+        : null,
       updated_at: new Date().toISOString(),
     };
 
