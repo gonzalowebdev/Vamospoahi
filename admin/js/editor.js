@@ -96,6 +96,7 @@ async function cargarPostExistente() {
   document.getElementById('post-excerpt').value = post.excerpt || '';
   quill.root.innerHTML = post.content || '';
   document.getElementById('post-cover-url').value = post.cover_image_url || '';
+  document.getElementById('post-cover-caption').value = post.cover_image_caption || '';
   document.getElementById('post-published').checked = post.published;
   document.getElementById('post-featured').checked = post.featured;
   document.getElementById('post-featured-order').value = post.featured_order ?? '';
@@ -136,6 +137,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       excerpt: document.getElementById('post-excerpt').value,
       content: quill.root.innerHTML,
       cover_image_url: document.getElementById('post-cover-url').value,
+      cover_image_caption: document.getElementById('post-cover-caption').value,
       published: document.getElementById('post-published').checked,
       featured: document.getElementById('post-featured').checked,
       featured_order: document.getElementById('post-featured-order').value

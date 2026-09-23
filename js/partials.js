@@ -49,7 +49,7 @@ function renderFooter() {
         <a href="#" class="hover:text-amber-200 text-xl"><i class="fab fa-facebook"></i></a>
         <a href="#" class="hover:text-amber-200 text-xl"><i class="fab fa-tiktok"></i></a>
       </div>
-      <p>© ${new Date().getFullYear()} Diani! · Vamos por ahí</p>
+      <p>© ${new Date().getFullYear()} Vamos Por Ahí</p>
     </div>
   </footer>`;
 

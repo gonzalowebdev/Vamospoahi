@@ -29,7 +29,10 @@ async function cargarNota() {
     <span class="text-xs font-semibold text-amber-600 uppercase tracking-wide">${getCategoryLabel(post.category)}</span>
     <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-2">${post.title}</h1>
     <p class="text-sm text-gray-400 mb-6">Publicado el ${fechaPublicacion}</p>
-    ${post.cover_image_url ? `<img src="${post.cover_image_url}" alt="${post.title}" class="w-full rounded-3xl mb-8">` : ''}
+    ${post.cover_image_url ? `
+      <img src="${post.cover_image_url}" alt="${post.title}" class="w-full rounded-3xl">
+      ${post.cover_image_caption ? `<p class="text-center text-sm text-gray-400 italic mt-2 mb-8">${post.cover_image_caption}</p>` : '<div class="mb-8"></div>'}
+    ` : ''}
     <div class="prose-nota text-gray-700 text-lg leading-relaxed">${post.content}</div>
   `;
 
