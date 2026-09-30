@@ -37,6 +37,7 @@ async function cargarNota() {
   `;
 
   renderBanner('entre_notas', 'banner-entre-notas');
+  renderReels(post.reels);
 
   // Otras notas de la misma categoría
   const { data: relacionadas } = await supabaseClient
@@ -60,6 +61,34 @@ async function cargarNota() {
         </div>
       </a>
     `).join('');
+  }
+}
+
+function renderReels(reelsTexto) {
+  const cont = document.getElementById('nota-reels');
+  const urls = (reelsTexto || '')
+    .split('\n')
+    .map(u => u.trim())
+    .filter(Boolean);
+
+  if (urls.length === 0) {
+    cont.innerHTML = '';
+    return;
+  }
+
+  cont.innerHTML = urls.map(url => `
+    <blockquote class="instagram-media" data-instgrm-permalink="${url}" data-instgrm-version="14" style="margin: 0 auto;"></blockquote>
+  `).join('');
+
+  procesarEmbedsInstagram();
+}
+
+// El script de Instagram carga async: si todavía no llegó, reintenta un rato.
+function procesarEmbedsInstagram(intentos = 10) {
+  if (window.instgrm && window.instgrm.Embeds) {
+    window.instgrm.Embeds.process();
+  } else if (intentos > 0) {
+    setTimeout(() => procesarEmbedsInstagram(intentos - 1), 300);
   }
 }
 

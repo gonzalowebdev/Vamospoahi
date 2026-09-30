@@ -24,10 +24,12 @@ async function cargarNotas() {
 }
 
 function aplicarFiltros() {
+  const busqueda = document.getElementById('buscador-notas').value.trim().toLowerCase();
   const cat = document.getElementById('filtro-categoria').value;
   const estado = document.getElementById('filtro-estado').value;
 
   let filtradas = todasLasNotas;
+  if (busqueda) filtradas = filtradas.filter(p => p.title.toLowerCase().includes(busqueda));
   if (cat) filtradas = filtradas.filter(p => p.category === cat);
   if (estado === 'publicada') filtradas = filtradas.filter(p => p.published);
   if (estado === 'borrador') filtradas = filtradas.filter(p => !p.published);
@@ -75,6 +77,7 @@ async function borrarNota(id) {
 
 document.addEventListener('DOMContentLoaded', () => {
   init();
+  document.getElementById('buscador-notas').addEventListener('input', aplicarFiltros);
   document.getElementById('filtro-categoria').addEventListener('change', aplicarFiltros);
   document.getElementById('filtro-estado').addEventListener('change', aplicarFiltros);
 });

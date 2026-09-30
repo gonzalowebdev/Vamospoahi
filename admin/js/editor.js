@@ -95,6 +95,7 @@ async function cargarPostExistente() {
   document.getElementById('post-category').value = post.category;
   document.getElementById('post-excerpt').value = post.excerpt || '';
   quill.root.innerHTML = post.content || '';
+  document.getElementById('post-reels').value = post.reels || '';
   document.getElementById('post-cover-url').value = post.cover_image_url || '';
   document.getElementById('post-cover-caption').value = post.cover_image_caption || '';
   document.getElementById('post-published').checked = post.published;
@@ -136,6 +137,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       category: document.getElementById('post-category').value,
       excerpt: document.getElementById('post-excerpt').value,
       content: quill.root.innerHTML,
+      reels: document.getElementById('post-reels').value,
       cover_image_url: document.getElementById('post-cover-url').value,
       cover_image_caption: document.getElementById('post-cover-caption').value,
       published: document.getElementById('post-published').checked,
